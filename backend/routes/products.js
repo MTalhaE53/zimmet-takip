@@ -37,21 +37,13 @@ router.post("/add", upload.single("image"), async (req, res) => {
 });
 
 // ✅ Tüm ürünleri listele
-router.get("/", async (req, res) => {
+router.get('/api/products', async (req, res) => {
   try {
-    const result = await pool.query(`
-      SELECT 
-        p.*,
-        u.name AS assigned_to
-      FROM products p
-      LEFT JOIN assignments a ON p.id = a.product_id
-      LEFT JOIN users u ON a.user_id = u.id
-      ORDER BY p.id DESC
-    `);
+    const result = await pool.query('SELECT * FROM products');
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Ürünler alınamadı" });
+    res.status(500).json({ error: 'Ürünler alınamadı' });
   }
 });
 
