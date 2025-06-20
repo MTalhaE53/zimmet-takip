@@ -20,7 +20,7 @@ const ProductEdit = () => {
     // Ürün detaylarını getir
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/products/${id}`);
+        const res = await axios.get(`http://zimmet-api.onrender.com/api/products/${id}`);
         setForm(res.data);
       } catch (err) {
         console.error("Ürün alınamadı:", err);
@@ -39,7 +39,7 @@ const ProductEdit = () => {
     setLoading(true);
 
     try {
-      await axios.put(`http://localhost:5000/api/products/${id}`, form);
+      await axios.put(`http://zimmet-api.onrender.com/api/products/${id}`, form);
       navigate("/"); // Listeye geri dön
     } catch (err) {
       console.error("Güncelleme hatası:", err);

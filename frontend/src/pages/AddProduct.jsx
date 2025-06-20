@@ -35,7 +35,7 @@ const AddProduct = () => {
     if (form.image) formData.append("image", form.image);
 
     try {
-      await axios.post("http://localhost:5000/api/products/add", formData);
+      await axios.post("http://zimmet-api.onrender.com/api/products/add", formData);
       setSuccess(true);
       setForm({ name: "", brand: "", serial_number: "", image: null });
     } catch (err) {

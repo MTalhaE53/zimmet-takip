@@ -25,7 +25,7 @@ const AssignProduct = () => {
 
       // Zimmetli mi kontrol et → varsa formu doldur
       axios
-        .get(`http://localhost:5000/api/assignments/product/${productId}`)
+        .get(`http://zimmet-api.onrender.com/api/assignments/product/${productId}`)
         .then((res) => {
           setForm({
             product_id: productId,
@@ -40,7 +40,7 @@ const AssignProduct = () => {
     }
 
     // ürün listesi getir
-    axios.get("http://localhost:5000/api/products").then((res) => {
+    axios.get("http://zimmet-api.onrender.com/api/products").then((res) => {
       setProducts(res.data);
     });
   }, [location.search]);
@@ -55,11 +55,11 @@ const AssignProduct = () => {
     try {
       if (isUpdate) {
         await axios.put(
-          `http://localhost:5000/api/assignments/update/${form.product_id}`,
+          `http://zimmet-api.onrender.com/api/assignments/update/${form.product_id}`,
           form
         );
       } else {
-        await axios.post("http://localhost:5000/api/assignments", form);
+        await axios.post("http://zimmet-api.onrender.com/api/assignments", form);
       }
       setSuccess(true);
       setTimeout(() => navigate("/"), 1500);

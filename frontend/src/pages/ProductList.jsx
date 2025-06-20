@@ -18,7 +18,7 @@ const ProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("http://zimmet-api.onrender.com/api/products");
       setProducts(res.data);
     } catch (err) {
       console.error("Ürünler alınamadı:", err);
@@ -27,14 +27,14 @@ const ProductList = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Bu ürünü silmek istiyor musun?")) {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`http://zimmet-api.onrender.com/api/products/${id}`);
       fetchProducts();
     }
   };
 
   const handleZimmetKaldir = async (id) => {
     if (window.confirm("Zimmeti kaldırmak istiyor musun?")) {
-      await axios.delete(`http://localhost:5000/api/assignments/remove/${id}`);
+      await axios.delete(`http://zimmet-api.onrender.com/api/assignments/remove/${id}`);
       fetchProducts();
     }
   };
@@ -81,7 +81,7 @@ const ProductList = () => {
                 {p.image_url ? (
 <div className="w-[80px] h-[60px] flex items-center justify-center border rounded overflow-hidden bg-gray-100">
   <img
-    src={`http://localhost:5000${p.image_url}`}
+    src={`http://zimmet-api.onrender.com${p.image_url}`}
     alt={p.name}
     className="w-full h-full object-contain"
   />

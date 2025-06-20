@@ -8,7 +8,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`http://zimmet-api.onrender.com/api/products/${id}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.error("Ürün alınamadı:", err));
   }, [id]);
@@ -21,7 +21,7 @@ const ProductDetail = () => {
 
       {product.image_url && (
         <img
-          src={`http://localhost:5000${product.image_url}`}
+          src={`http://zimmet-api.onrender.com${product.image_url}`}
           alt={product.name}
           className="w-full h-60 object-contain rounded mb-4 border"
         />
